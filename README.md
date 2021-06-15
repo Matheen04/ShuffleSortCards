@@ -15,7 +15,11 @@ Few of the cards have different colors than mentioned in the assignment as those
 
 The font style and sizes are assumed here.
 
-
+Functionalities:
+It has 9 cards shown in sorted order on load.
+We can shuffle the cards in random order using shuffle button
+We can sort back the shuffled cardr by clicking on the sort button
+It has responsive design based on mobile(375px) or other screen
 
 Additional Functionality:
 
