@@ -15,7 +15,7 @@ const MOBILE_WIDTH = "375px";
 const MOBILE_CARD_BACKGROUND_COLOR = "#E0D7D7";
 const CARDS_LIST_CONTAINER_ID = "cards-list-container";
 const SHUFFLE_BUTTON_ID = "#shuffle-button";
-const SORT_BUTTON_ID = "#sort-button";
+const SORT_BUTTON_ID = "sort-button";
 
 // cardsList - Fetch the id of cards lit container. Creating this as global variable, using let since this is used across the program
 let cardsList = document.getElementById(CARDS_LIST_CONTAINER_ID);
@@ -82,12 +82,16 @@ const updateCardNumber = (cardsList) => {
 const onShuffleClickHandler = () => {
   const shuffledArray = getShuffledArray(displayArray);
   updateCardNumber(shuffledArray);
+  // Enable the sort button once the cards are shuffled
+  document.getElementById(SORT_BUTTON_ID).disabled = false;
 };
 
 // onSortClickHandler - This is an on click handler which is triggered on click of shuffle button.
 const onSortClickHandler = () => {
   const sortedArray = displayArray.sort();
   updateCardNumber(sortedArray);
+  // Disable the sort button as once the cards are already sorted
+  document.getElementById(SORT_BUTTON_ID).disabled = true;
 };
 
 // Add onClick event for shuffle button
@@ -96,7 +100,7 @@ document.querySelector(SHUFFLE_BUTTON_ID).addEventListener("click", () => {
 });
 
 // Add onClick event for sort button
-document.querySelector(SORT_BUTTON_ID).addEventListener("click", () => {
+document.querySelector(`#${SORT_BUTTON_ID}`).addEventListener("click", () => {
   onSortClickHandler();
 });
 
